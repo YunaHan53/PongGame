@@ -9,16 +9,18 @@ screen.bgcolor("black")
 screen.title("The Pong Arcade Game")
 screen.tracer(0)
 
-paddle = Paddle()
+# Create 2 paddles
+r_paddle = Paddle((550, 0))
+l_paddle = Paddle((-550, 0))
 
 screen.listen()
 # Right paddle movement
-screen.onkey(paddle.r_up, "Up")
-screen.onkey(paddle.r_down, "Down")
+screen.onkey(r_paddle.up, "Up")
+screen.onkey(r_paddle.down, "Down")
 
 # Left paddle movement
-screen.onkey(paddle.l_up, "w")
-screen.onkey(paddle.l_down, "s")
+screen.onkey(l_paddle.up, "w")
+screen.onkey(l_paddle.down, "s")
 
 game_is_on = True
 while game_is_on:
