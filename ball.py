@@ -8,22 +8,30 @@ class Ball(Turtle):
         self.penup()
         self.x_move = 15
         self.y_move = 15
+        self.move_speed = 0.1
 
     def move(self):
+        """Move the ball by locating its coordinates and increasing the value."""
         new_x = self.xcor() + self.x_move
         new_y = self.ycor() + self.y_move
         self.goto(new_x, new_y)
 
     def bounce_y(self):
+        """Bounces the ball off the top and bottom of the screen."""
         self.y_move *= -1
 
     def bounce_x(self):
+        """Bounces the ball from the paddles and increase the ball speed slightly."""
         self.x_move *= -1
+        self.move_speed *= 0.9
 
     def reset_ball(self):
+        """Reset the ball position and speed."""
         self.goto(0, 0)
+        self.move_speed = 0.1
         self.bounce_x()
 
     def increase_speed(self):
-        self.x_move *= 1.1
-        self.y_move *= 1.1
+        """Increase the speed of the ball as number of rounds increase."""
+        self.x_move *= 1.05
+        self.y_move *= 1.05
